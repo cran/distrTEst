@@ -1,0 +1,7 @@
+import("methods")
+import("distr")
+import("distrSim")
+
+exportClasses("numericorNULL", "Evaluation")
+exportMethods("name", "filename", "call.ev", "result", "estimator", "savedata")
+exportMethods("initialize", "evaluate", "plot", "print", "summary")

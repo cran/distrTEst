@@ -1,0 +1,14 @@
+citHeader("To cite package distrTEst in publications use:")
+
+citEntry(entry="Manual",
+         title = "Estimating and testing based on package distr --- a manual for package distrTEst version~1.6, Oct.~2005",
+         author = personList(as.person("P. Ruckdeschel"),
+                        as.person("M. Kohl"),
+                        as.person("T. Stabla"),
+                        as.person("F. Camphausen")),
+         language = "English",
+         year = {2005},
+         url = "http://www.uni-bayreuth.de/departments/math/org/mathe7/DISTR/distr.pdf",
+
+textVersion = paste("Ruckdeschel, P., Kohl, M., Stabla, T., & Camphausen, F. (2005)",
+                    "Estimating and testing based on package distr --- a manual for package distrTEst version 1.6, Oct.~2005"))
