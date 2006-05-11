@@ -39,11 +39,11 @@ setMethod("initialize", "Evaluation",
             .Object
           })
 
-if(!isGeneric("evaluate")) setGeneric("evaluate", function(object, estimator) standardGeneric("evaluate"))
+if(!isGeneric("evaluate")) setGeneric("evaluate", function(object, estimator, ...) standardGeneric("evaluate"))
 
 ## different runs in different lines of data matrix
 
-setMethod("evaluate", signature(object = "Dataclass", estimator = "function"), function(object, estimator){
+setMethod("evaluate", signature(object = "Dataclass", estimator = "function"), function(object, estimator, ...){
   if(is.null(Data(object)))
     stop("No Data found -> simulate first")
   if(is.null(filename(object)))
@@ -54,8 +54,8 @@ setMethod("evaluate", signature(object = "Dataclass", estimator = "function"), f
   name <- as.character(substitute(object))
   filename <- filename(object)
   Data <- Data(object)
-  if(!is.vector(Data)) result <- apply(X = Data, MARGIN = 1, FUN = estimator)
-  else result <- apply(X = as.matrix(Data), MARGIN = 2, FUN = estimator)
+  if(!is.vector(Data)) result <- apply(X = Data, MARGIN = 1, FUN = estimator, ...)
+  else result <- apply(X = as.matrix(Data), MARGIN = 2, FUN = estimator, ...)
   new("Evaluation", name = name, call.ev = call.ev, filename = filename,
       result = result, estimator = estimator)
 })

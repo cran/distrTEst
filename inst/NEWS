@@ -1,0 +1,12 @@
+######################################################################
+#  News: to package distrTEst 
+######################################################################
+
+##############
+v 1.7
+##############
+
+* additional "..." included into function evaluate 
+* NEWS file
+* citation file
+* distrTEst-package.Rd file

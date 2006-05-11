@@ -1,6 +1,7 @@
 import("methods")
 import("distr")
 import("distrSim")
+import("startupmsg")
 
 exportClasses("numericorNULL", "Evaluation")
 exportMethods("name", "filename", "call.ev", "result", "estimator", "savedata")

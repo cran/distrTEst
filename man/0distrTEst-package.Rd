@@ -1,0 +1,89 @@
+\name{distrTEst-package}
+\alias{distrTEst-package}
+\alias{distrTEst}
+\docType{package}
+\title{
+dsitrTEst -- Estimation and Testing classes based on package distr
+}
+\description{
+\pkg{distrTest} provides
+(S4-)classes for evaluating procedures (estimators/tests) at data/simulation in
+a unified way based on package \pkg{distr}. This is achieved by means of the S4 class
+\code{Evaluation}. The package is based on our packages \pkg{distr} and \pkg{distrSim}, hence uses distribution classes 
+and simulation classes as introduced there to capture the situation from which the simulations stem.
+}
+\details{
+\tabular{ll}{
+Package: \tab distrTEst\cr
+Version: \tab 1.7\cr
+Date: \tab 2006-05-11\cr
+Depends: \tab R(>= 2.2.0), methods, graphics, setRNG(>= 2006.2-1), distr(>=
+1.7), distrSim(>= 1.7)\cr
+Imports: \tab stats\cr
+SaveImage: \tab no\cr
+LazyLoad: \tab yes\cr
+License: \tab GPL (version 2 or later)\cr
+URL: \tab http://www.uni-bayreuth.de/departments/math/org/mathe7/DISTR/\cr
+Packaged: \tab Thu May 11 10:16:03 2006; Peter\cr
+Built: \tab R 2.4.0dev; i386-pc-mingw32; 2006-05-11 10:20:11; windows\cr
+}}
+
+\section{Classes}{
+\preformatted{
+"Evaluation"
+      slots: [<name>(<class>)] 
+      name(character), filename(character), call.ev(call),
+      result(vectororNULL), estimator(OptionalFunction)
+}}
+
+\section{Methods}{
+\preformatted{
+plot            plot method for "Evaluation"
+print           print method for "Evaluation"
+summary         summary method for "Evaluation"
+}}
+
+\section{Slot accessors / -replacement functions}{
+All slots are inspected / modified by corresponding 
+accessors / -replacement functions, e.g. \code{call.ev(X)} 
+or \code{filename(X)<-"myevaluation.sav"} for
+an object of class \code{"Evaluation"}
+}}
+
+\section{Start-up-Banner}{
+You may suppress the start-up banner/message completely by setting \code{options("StartupBanner"="off")}
+somewhere before loading this package by \code{library} or \code{require} in your R-code / R-session.
+
+If option \code{"StartupBanner"} is not defined (default) or setting    
+\code{options("StartupBanner"=NULL)} or  \code{options("StartupBanner"="complete")} 
+the complete start-up banner is displayed.
+
+For any other value of option \code{"StartupBanner"} (i.e., not in \code{c(NULL,"off","complete")})
+only the version information is displayed.
+
+The same can be achieved by wrapping the \code{library} or \code{require}  call into
+either \code{suppressStartupMessages()} or \code{onlytypeStartupMessages(.,atypes="version")}.
+}
+
+\author{
+  Thomas Stabla \email{statho3@web.de},\cr 
+  Florian Camphausen \email{fcampi@gmx.de},\cr
+  Peter Ruckdeschel \email{Peter.Ruckdeschel@uni-bayreuth.de},\cr 
+  Matthias Kohl \email{Matthias.Kohl@stamats.de}\cr
+
+\emph{Maintainer:} Peter Ruckdeschel \email{Peter.Ruckdeschel@uni-bayreuth.de}
+}
+
+\references{
+a more detailed manual for \pkg{distr}, \pkg{distrSim}, \pkg{distrTEst}, and \pkg{distrEx} may be downloaded from  
+\url{http://www.uni-bayreuth.de/departments/math/org/mathe7/DISTR/distr.pdf}
+
+a homepage to this package is available under\cr
+\url{http://www.uni-bayreuth.de/departments/math/org/mathe7/DISTR/distrTEst.html}
+}
+
+\keyword{ package }
+\seealso{
+\code{\link[distr]{distr}}, \code{\link[distrSim]{distrSim}},  \code{\link[setRNG]{setRNG}}
+}
+
