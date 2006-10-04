@@ -1,15 +1,18 @@
 \name{numericorNULL-class}
 \docType{class}
 \alias{numericorNULL-class}
+\alias{DataframeorNULL-class}
+\alias{CallorNULL-class}
 
-\title{Class "numericorNULL" }
+\title{Classes "numericorNULL", "CallorNULL", and "DataframeorNULL"}
 
-\description{ auxiliary class; may contain either a numeric vector or NULL.}
+\description{ auxiliary classes; may contain either a numeric vector or NULL 
+[or a call / data.frame or NULL, respectively].}
 
 \section{Objects from the Class}{A virtual Class: No objects may be created from it.}
 
 \section{Methods}{
-No methods defined with class "numericorNULL" in the signature.
+No methods defined with class "numericorNULL", "CallorNULL", and "DataframeorNULL" in the signature.
 }
 
 \author{
@@ -19,8 +22,8 @@ No methods defined with class "numericorNULL" in the signature.
   Matthias Kohl \email{Matthias.Kohl@stamats.de}
   }
 
-\note{ Dataclass-class can save data either of type "NULL" (means no data) or "vector"}
+\note{From version 1.8, the result slot of an object of class evaluation is of type "DataframeorNULL"}
 
-\seealso{\code{\link[distrSim]{Dataclass-class}}}
+\seealso{\code{\link{Evaluation-class}}}
 
 \keyword{}

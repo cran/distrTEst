@@ -7,5 +7,6 @@
 \description{name-methods}
 \section{Methods}{\describe{
 \item{name}{\code{signature(object = "Evaluation")}: returns the slot name of data object }
+\item{name<-}{\code{signature(.Object = "Evaluation")}: modifies the slot name of data object }
 }}
 \keyword{}

@@ -3,6 +3,29 @@
 ######################################################################
 
 ##############
+v 1.8
+##############
+
+* plot, print and summary are now more flexible for objects of class Evaluation or EvaluationList
+* global conrols by new distrTEstoptions()
+* now suggests distrEx in description
+* updated citation file
+* evaluation method  for Contsimulation 
+* slot result in Evaluation class now of class "DataframeorNULL"
+* slot call.ev in Evaluation class now of class "CallorNULL"
+* new slot Data of class Dataclass, but which in turn, in case of simulations,
+  has an empty "Data"-slot (to be able to check whether all Data sets of an
+  Evaluation List coincide)
+* new class EvaluationList with slots name ("character") and Elist ("list") 
+  to gather the results of several Evaluations on the same data set
+* revised plot method  for class Evaluation to account for multivariate results
+* print,plot,summary,show methods for EvaluationList 
+* Data as an accessor to slot Data for Evaluation class and 
+  to the common Data slot of EvaluationList class 
+* savedata now allows for more flexible filenames, but retains the old convention
+  by default
+
+##############
 v 1.7
 ##############
 

@@ -3,6 +3,10 @@ import("distr")
 import("distrSim")
 import("startupmsg")
 
-exportClasses("numericorNULL", "Evaluation")
-exportMethods("name", "filename", "call.ev", "result", "estimator", "savedata")
-exportMethods("initialize", "evaluate", "plot", "print", "summary")
+export("EvaluationList", "distrTEstoptions", "getdistrTEstOption")
+exportClasses("numericorNULL", "Evaluation", "EvaluationList",
+              "DataframeorNULL", "CallorNULL")
+exportMethods("name", "filename", "call.ev", "result", "estimator", 
+              "savedata", "Data", "Elist")
+exportMethods("initialize", "evaluate", "plot", "print", "summary",
+              "show")
