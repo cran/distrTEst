@@ -9,4 +9,6 @@
 \section{Methods}{\describe{
 \item{result}{\code{signature(object = "Evaluation")}: returns the result of an evaluation}
 }}
-\keyword{}
+\concept{S4 evaluation class}
+\keyword{methods}
+\concept{accessor function}

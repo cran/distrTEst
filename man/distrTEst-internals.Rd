@@ -18,5 +18,6 @@ converted to a data.frame of dimensions runs x resultDim}
   Peter Ruckdeschel \email{Peter.Ruckdeschel@uni-bayreuth.de}
   }
 
-
 \keyword{internal}
+\keyword{misc}
+\concept{conversion}

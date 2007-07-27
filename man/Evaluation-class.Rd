@@ -101,4 +101,5 @@ ev3 <- evaluate(cs, severalThings, resname="several")
 plot(ev3)
 plot(ev3, ylim=c(0,10), col=c("blue","green", "red"))
 }
-\keyword{}
+\keyword{manip}
+\concept{S4 evaluation class}

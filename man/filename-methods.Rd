@@ -10,4 +10,7 @@
    
 \item{filename}{\code{signature(object = "Evaluation")}: returns the filename of the evaluated object }
 }}
-\keyword{}
+\keyword{file}
+\concept{S4 evaluation class}
+\keyword{methods}
+\concept{accessor function}

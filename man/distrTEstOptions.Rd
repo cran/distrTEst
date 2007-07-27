@@ -52,3 +52,5 @@ distrTEstoptions("MaxNumberofPlottedEvaluationDims" = 5)
 getdistrTEstOption("MaxNumberofPlottedEvaluationDims")
 }
 \keyword{misc}
+\concept{global options}
+\concept{options}

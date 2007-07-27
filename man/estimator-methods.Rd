@@ -10,4 +10,6 @@
 
 \item{estimator}{\code{signature(object = "Evaluation")}: returns the estimator }
 }}
-\keyword{}
+\concept{accessor function}
+\concept{S4 evaluation class}
+\keyword{methods}

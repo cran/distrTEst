@@ -28,9 +28,9 @@ psim <- function(theta,y,m0){
   mean(pmin(pmax(-m0, y - theta), m0))
 }
 mestimator <- function(x, m = 0.7) {
-  uniroot(psim,
-          low = -20,
-          up = 20,
+  uniroot(f = psim,
+          lower = -20,
+          upper = 20,
           tol = 1e-10,
           y = x,
           m0 = m,

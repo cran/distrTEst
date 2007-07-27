@@ -15,4 +15,7 @@ and \code{ylim} may be transmitted coordinatewise
 (i.e.; a vector of length (result-dimension), respectively a 2 x (result-dimension) matrix)
 or globally, using the usual recycling rules.}
 }}
-\keyword{}
+\concept{S4 evaluation class}
+\keyword{methods}
+\keyword{hplot}
+\concept{boxplot}

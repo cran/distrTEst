@@ -15,8 +15,8 @@ and simulation classes as introduced there to capture the situation from which t
 \details{
 \tabular{ll}{
 Package: \tab distrTEst\cr
-Version: \tab 1.8\cr
-Date: \tab 2006-10-04\cr
+Version: \tab 1.9 \cr
+Date: \tab 2007-07-27 \cr
 Depends: \tab R(>= 2.2.0), methods, graphics, setRNG(>= 2006.2-1), startupmsg, 
 distr(>=1.8), distrSim(>= 1.8)\cr
 Suggests: \tab distrEx(>= 0.4-4)\cr
@@ -26,7 +26,6 @@ LazyLoad: \tab yes\cr
 License: \tab GPL (version 2 or later)\cr
 URL: \tab http://www.uni-bayreuth.de/departments/math/org/mathe7/DISTR/\cr
 }}
-
 \section{Classes}{
 \preformatted{
 "Evaluation"
@@ -55,7 +54,7 @@ All slots are inspected / modified by corresponding
 accessors / -replacement functions, e.g. \code{call.ev(X)} 
 or \code{filename(X)<-"myevaluation.sav"} for
 an object of class \code{"Evaluation"}.
-}}
+}
 
 \section{Start-up-Banner}{
 You may suppress the start-up banner/message completely by setting \code{options("StartupBanner"="off")}
@@ -70,7 +69,12 @@ only the version information is displayed.
 
 The same can be achieved by wrapping the \code{library} or \code{require}  call into
 either \code{\link[startupmsg]{suppressStartupMessages}()} or \code{\link[startupmsg]{onlytypeStartupMessages}(.,atypes="version")}. 
-}
+
+As for general \code{packageStartupMessage}'s, you may also suppress all
+ the start-up banner by wrapping the \code{library} or \code{require} 
+ call into \code{suppressPackageStartupMessages()} from 
+ \pkg{startupmsg}-version 0.5 on.
+ }
 
 \author{
   Thomas Stabla \email{statho3@web.de},\cr 
@@ -100,6 +104,7 @@ A homepage to this package is available under\cr
 }
 
 \keyword{ package }
+\concept{S4 evaluation class}
 \seealso{
 \code{\link[distr]{distr}}, \code{\link[distrSim]{distrSim}},  \code{\link[setRNG]{setRNG}}
 }

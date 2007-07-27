@@ -9,4 +9,6 @@
 \item{name}{\code{signature(object = "Evaluation")}: returns the slot name of data object }
 \item{name<-}{\code{signature(.Object = "Evaluation")}: modifies the slot name of data object }
 }}
-\keyword{}
+\concept{S4 evaluation class}
+\keyword{methods}
+\concept{accessor function}

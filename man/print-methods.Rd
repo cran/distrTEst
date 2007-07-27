@@ -33,4 +33,6 @@ for each member of the list print is executed;
 \item{show}{\code{signature(x = "Evaluation")}: the same as \code{print} (without optional arguments)}
 \item{show}{\code{signature(x = "EvaluationList")}: the same as \code{print} (without optional arguments)}
 }}
-\keyword{}
+\concept{S4 evaluation class}
+\keyword{methods}
+\keyword{print}

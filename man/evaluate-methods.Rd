@@ -37,4 +37,5 @@ evaluate(object, estimator, ..., resname = "res",
                 the name of the estimator in \code{\link{savedata}}. }
 }
 \seealso{\code{\link{Evaluation-class}}}
-\keyword{}
+\concept{S4 evaluation class}
+\keyword{methods}

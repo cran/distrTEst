@@ -28,4 +28,6 @@
    \item{dims0}{the indices of observation dimensions to be summarized;}}
    }
 }}
-\keyword{}
+\concept{summary}
+\keyword{methods}
+\concept{S4 evaluation class}

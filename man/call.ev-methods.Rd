@@ -8,4 +8,7 @@
 \section{Methods}{\describe{
     \item{call.ev}{\code{signature(object = "Evaluation")}: returns the call which created the object }
 }}
-\keyword{}
+\keyword{methods}
+\concept{S4 evaluation class}
+\concept{accessor function}
+\concept{call of evaluation}

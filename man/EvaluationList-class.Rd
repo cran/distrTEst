@@ -94,4 +94,6 @@ plot(ElistObj,ylim=c(-0.5,0.5),main=c("location"),runs0=3:12,dims0=1,evals0=2)
 ElistObj
 summary(ElistObj)
 }
-\keyword{}
+\keyword{list}
+\keyword{manip}
+\concept{S4 evaluation class}

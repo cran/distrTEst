@@ -14,10 +14,10 @@ distrTEstoptions <- function(...) {
   if (is.null(n)) stop("options must be given by name")
   changed <- current[n]
   current[n] <- temp
-  if (sys.parent() == 0) env <- asNamespace("distrTEst") else env <- parent.frame()
+  if (sys.parent() == 0) env <- asNamespace("distrTEst") 
+  else                   env <- parent.frame()
   assign(".distrTEstoptions", current, envir = env)
   invisible(current)
 }
 
-getdistrTEstOption<-function(x)
-distrTEstoptions(x)[[1]]
+getdistrTEstOption <- function(x) distrTEstoptions(x)[[1]]

@@ -12,4 +12,6 @@
 \item{Data}{\code{signature(object = "EvaluationList")}: returns the common Data slot of
       the respective list elements}
 }}
-\keyword{}
+\keyword{methods}
+\concept{S4 evaluation class}
+\concept{accessor function}

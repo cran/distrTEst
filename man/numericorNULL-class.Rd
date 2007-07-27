@@ -26,4 +26,6 @@ No methods defined with class "numericorNULL", "CallorNULL", and "DataframeorNUL
 
 \seealso{\code{\link{Evaluation-class}}}
 
-\keyword{}
+\keyword{classes}
+\concept{class union}
+\concept{virtual}
