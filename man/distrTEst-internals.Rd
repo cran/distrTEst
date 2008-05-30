@@ -15,7 +15,7 @@
 converted to a data.frame of dimensions runs x resultDim}
 
 \author{
-  Peter Ruckdeschel \email{Peter.Ruckdeschel@uni-bayreuth.de}
+  Peter Ruckdeschel \email{Peter.Ruckdeschel@itwm.fraunhofer.de}
   }
 
 \keyword{internal}

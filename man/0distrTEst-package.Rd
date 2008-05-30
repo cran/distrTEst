@@ -15,16 +15,14 @@ and simulation classes as introduced there to capture the situation from which t
 \details{
 \tabular{ll}{
 Package: \tab distrTEst\cr
-Version: \tab 1.9 \cr
-Date: \tab 2007-07-27 \cr
-Depends: \tab R(>= 2.2.0), methods, graphics, setRNG(>= 2006.2-1), startupmsg, 
-distr(>=1.8), distrSim(>= 1.8)\cr
-Suggests: \tab distrEx(>= 0.4-4)\cr
+Version: \tab 2.0 \cr
+Date: \tab 2008-05-08 \cr
+Depends: \tab R(>= 2.6.0), methods, graphics, setRNG(>= 2006.2-1), distr(>= 2.0), distrSim(>= 2.0), startupmsg\cr
+Suggests: \tab distrEx(>= 2.0)\cr
 Imports: \tab stats\cr
-SaveImage: \tab no\cr
 LazyLoad: \tab yes\cr
 License: \tab GPL (version 2 or later)\cr
-URL: \tab http://www.uni-bayreuth.de/departments/math/org/mathe7/DISTR/\cr
+URL: \tab http://distr.r-forge.r-project.org/\cr
 }}
 \section{Classes}{
 \preformatted{
@@ -79,10 +77,10 @@ As for general \code{packageStartupMessage}'s, you may also suppress all
 \author{
   Thomas Stabla \email{statho3@web.de},\cr 
   Florian Camphausen \email{fcampi@gmx.de},\cr
-  Peter Ruckdeschel \email{Peter.Ruckdeschel@uni-bayreuth.de},\cr 
+  Peter Ruckdeschel \email{Peter.Ruckdeschel@itwm.fraunhofer.de},\cr 
   Matthias Kohl \email{Matthias.Kohl@stamats.de}\cr
 
-\emph{Maintainer:} Peter Ruckdeschel \email{Peter.Ruckdeschel@uni-bayreuth.de}
+\emph{Maintainer:} Peter Ruckdeschel \email{Peter.Ruckdeschel@itwm.fraunhofer.de}
 }
 
 \note{Global options controlling the plots and summaries of Evaluationlist

@@ -50,7 +50,7 @@ It is to be preferred to use "evaluate" with a Dataclass object!}
 \author{
   Thomas Stabla \email{statho3@web.de},\cr 
   Florian Camphausen \email{fcampi@gmx.de},\cr
-  Peter Ruckdeschel \email{Peter.Ruckdeschel@uni-bayreuth.de},\cr 
+  Peter Ruckdeschel \email{Peter.Ruckdeschel@itwm.fraunhofer.de},\cr 
   Matthias Kohl \email{Matthias.Kohl@stamats.de}
   }
 

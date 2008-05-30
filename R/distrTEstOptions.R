@@ -1,3 +1,9 @@
+.distrTEstoptions <- list(
+                      MaxNumberofPlottedEvaluationDims = 6,
+                      MaxNumberofPlottedEvaluations = 6,
+                      MaxNumberofSummarizedEvaluations = 15,
+                      MaxNumberofPrintedEvaluations = 15)
+  
 distrTEstoptions <- function(...) {
   if (nargs() == 0) return(.distrTEstoptions)
   current <- .distrTEstoptions

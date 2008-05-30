@@ -23,7 +23,7 @@ getdistrTEstOption(x)
 }
 \details{Invoking \code{distrTEstoptions()} with no arguments returns a list with the current values of the options.  
  To access the value of a single option, one should use \code{getdistrTEstOption("MaxNumberofSummarizedEvaluations")}, 
- e.g., rather than \code{distroptions("MaxNumberofSummarizedEvaluations")} which is a \emph{list} of length one.}
+ e.g., rather than \code{distrTEstoptions("MaxNumberofSummarizedEvaluations")} which is a \emph{list} of length one.}
 \value{
 \code{distrTEstoptions()} returns a list of the global options of \pkg{distrTEst}. \cr
 \code{distrTEstoptions("MaxNumberofSummarizedEvaluations")} returns  the global option \code{MaxNumberofSummarizedEvaluations} as a list of length 1. \cr
@@ -40,7 +40,7 @@ getdistrTEstOption(x)
 }
 }
 %\references{}
-\author{Peter Ruckdeschel \email{Peter.Ruckdeschel@uni-bayreuth.de}}
+\author{Peter Ruckdeschel \email{Peter.Ruckdeschel@itwm.fraunhofer.de}}
 %\note{}
 \seealso{\code{\link[base]{options}}, \code{\link[base]{getOption}},
 \code{\link[distr]{distroptions}}, \code{\link[distr]{getdistrOption}}}

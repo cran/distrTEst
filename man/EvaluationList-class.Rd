@@ -14,10 +14,10 @@
 they all have the same result-format and also share the same data-set. }
 \section{Objects from the Class}{
 Objects may be created by the generating function \code{EvaluationList}, i.e.; 
-\code{EvaluationList(...,name0="a list of \"Evaluation\" objects")}, where all arguments passed through \dots 
-      have to be objects of class "Evaluation" name, the corresponding result-slots have to contain 
+\code{EvaluationList(..., name0 = "a list of \"Evaluation\" objects")}, where all arguments passed through \dots 
+      have to be objects of class "Evaluation", the corresponding result-slots have to contain 
       data.frames of identical dimension; the corresponding calls have to have identical \code{object}-arguments 
-      (for the data set), and the corresponding \code{Data}-slots have to identical.}
+      (for the data set), and the corresponding \code{Data}-slots have to be identical.}
 \section{Slots}{
   \describe{
     \item{\code{name}:}{Object of class \code{"character"}: the name of the EvaluationList object}
@@ -46,7 +46,7 @@ Objects may be created by the generating function \code{EvaluationList}, i.e.;
 \author{
   Thomas Stabla \email{statho3@web.de},\cr 
   Florian Camphausen \email{fcampi@gmx.de},\cr
-  Peter Ruckdeschel \email{Peter.Ruckdeschel@uni-bayreuth.de},\cr 
+  Peter Ruckdeschel \email{Peter.Ruckdeschel@itwm.fraunhofer.de},\cr 
   Matthias Kohl \email{Matthias.Kohl@stamats.de}
   }
 
