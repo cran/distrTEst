@@ -1,7 +1,7 @@
 ###Plot
 
-setMethod("plot","Evaluation",
-          function(x,y=NULL,
+setMethod("plot",signature(x="Evaluation",y="missing"),
+          function(x,
                    runs0=1:nrow(result(x)), dims0=1:ncol(result(x)),  ...
           ){
             dots <- list(...)
@@ -14,8 +14,8 @@ setMethod("plot","Evaluation",
           }
           )
 
-setMethod("plot","EvaluationList",
-           function(x,y=NULL,
+setMethod("plot",signature(x="EvaluationList",y="missing"),
+           function(x,
                     runs0=1:nrow(result(Elist(x)[[1]])),
                     dims0= 1: ifelse(sum(grep("\\.id($|\\.)",
                                      colnames(result(Elist(x)[[1]]))))>0,
