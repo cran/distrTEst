@@ -1,4 +1,5 @@
 require(distrTEst)
+options("newDevice"=TRUE)
 
 sim <- new("Simulation",
            seed = setRNG(),
