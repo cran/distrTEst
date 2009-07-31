@@ -1,6 +1,6 @@
 Package: distrTEst
-Version: 2.1
-Date: 2009-04-14
+Version: 2.1.1
+Date: 2009-07-31
 Title: Estimation and Testing classes based on package distr
 Depends: R(>= 2.6.0), methods, graphics, setRNG(>= 2006.2-1), distr(>=
         2.1), distrSim(>= 2.1), startupmsg
@@ -18,6 +18,6 @@ URL: http://distr.r-forge.r-project.org/
 LastChangedDate: {$LastChangedDate: 2009-04-14 11:52:47 +0200 (Di, 14
         Apr 2009) $}
 LastChangedRevision: {$LastChangedRevision: 461 $}
-Packaged: 2009-04-14 09:55:38 UTC; btms02
+Packaged: 2009-07-31 11:45:13 UTC; ruckdesc
 Repository: CRAN
-Date/Publication: 2009-04-15 07:34:07
+Date/Publication: 2009-07-31 18:13:56

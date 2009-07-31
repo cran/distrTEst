@@ -14,7 +14,8 @@ It is to be preferred to use "evaluate" with a Dataclass object!}
   \describe{
     \item{\code{call.ev}:}{Object of class \code{"call"} the call which created the object, 
       e.g.; ``evaluate(Dataclassobject,mean)'' }
-    \item{\code{estimator}:}{Object of class \code{"OptionalFunction"}: estimation function used; this estimation function 
+    \item{\code{Data}:}{Object of class \code{"Dataclass"}: the data set / simulation on which the evaluation takes place.}
+    \item{\code{estimator}:}{Object of class \code{"OptionalFunction"}: estimation function used; this estimation function
     should be able to deal with data in matrix form \code{samplesize} x \code{obsDim} and 
     should return either a univariate result or a vector (with named coordinates, if possible).}
     \item{\code{filename}:}{Object of class \code{"character"}: the filename of the evaluation;
