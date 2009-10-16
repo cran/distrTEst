@@ -14,13 +14,13 @@ and simulation classes as introduced there to capture the situation from which t
 }
 \details{
 \tabular{ll}{
-Package: \tab distrTEst\cr
-Version: \tab 2.1 \cr
-Date: \tab 2009-03-19 \cr
+Package: \tab distrTEst \cr
+Version: \tab 2.2 \cr
+Date: \tab 2009-09-04 \cr
 Depends: \tab R(>= 2.6.0), methods, graphics, setRNG(>= 2006.2-1), distr(>=
 2.0), distrSim(>= 2.0), startupmsg\cr
-LazyLoad: \tab yes\cr
-License: \tab LGPL-3\cr
+LazyLoad: \tab yes \cr
+License: \tab LGPL-3 \cr
 URL: \tab http://distr.r-forge.r-project.org/\cr
 }}
 \section{Classes}{
@@ -65,7 +65,8 @@ For any other value of option \code{"StartupBanner"} (i.e., not in \code{c(NULL,
 only the version information is displayed.
 
 The same can be achieved by wrapping the \code{library} or \code{require}  call into
-either \code{\link[startupmsg]{suppressStartupMessages}()} or \code{\link[startupmsg]{onlytypeStartupMessages}(.,atypes="version")}. 
+either \code{\link[startupmsg:StartupUtilities]{suppressStartupMessages}()} or 
+\code{\link[startupmsg:StartupUtilities]{onlytypeStartupMessages}(.,atypes="version")}. 
 
 As for general \code{packageStartupMessage}'s, you may also suppress all
  the start-up banner by wrapping the \code{library} or \code{require} 
@@ -87,6 +88,12 @@ objects may be inspected / set by \code{\link{distrTEstoptions}()}
 and \code{\link{getdistrTEstOption}()}.
 }
 
+\section{Package versions}{
+Note: The first two numbers of package versions do not necessarily reflect
+ package-individual development, but rather are chosen for the
+ distrXXX family as a whole in order to ease updating "depends"
+ information.
+}
 
 \references{
 %A more detailed manual for \pkg{distr}, \pkg{distrSim}, \pkg{distrTEst}, and \pkg{distrEx} may be downloaded from  
@@ -97,12 +104,13 @@ is included into the mere documentation package \pkg{distrDoc} and may be called
 \code{require("distrDoc");vignette("distr")}.
 
 A homepage to this package is available under\cr
-\url{http://www.uni-bayreuth.de/departments/math/org/mathe7/DISTR/distrTEst.html}.
+\url{http://distr.r-forge.r-project.org/}
 }
 
 \keyword{ package }
 \concept{S4 evaluation class}
 \seealso{
-\code{\link[distr]{distr}}, \code{\link[distrSim]{distrSim}},  \code{\link[setRNG]{setRNG}}
+\code{\link[distr:0distr-package]{distr-package}}, \code{\link[distrSim:0distrSim-package]{distrSim-package}}, 
+\code{\link[setRNG]{setRNG}}
 }
 

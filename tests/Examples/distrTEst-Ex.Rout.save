@@ -1,0 +1,586 @@
+
+R version 2.10.0 beta (2009-10-15 r50107)
+Copyright (C) 2009 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> ### * <HEADER>
+> ###
+> attach(NULL, name = "CheckExEnv")
+> assign("nameEx",
++        local({
++ 	   s <- "__{must remake R-ex/*.R}__"
++            function(new) {
++                if(!missing(new)) s <<- new else s
++            }
++        }),
++        pos = "CheckExEnv")
+> ## Add some hooks to label plot pages for base and grid graphics
+> assign("base_plot_hook",
++        function() {
++            pp <- par(c("mfg","mfcol","oma","mar"))
++            if(all(pp$mfg[1:2] == c(1, pp$mfcol[2]))) {
++                outer <- (oma4 <- pp$oma[4]) > 0; mar4 <- pp$mar[4]
++                mtext(sprintf("help(\"%s\")", nameEx()), side = 4,
++                      line = if(outer)max(1, oma4 - 1) else min(1, mar4 - 1),
++                outer = outer, adj = 1, cex = .8, col = "orchid", las=3)
++            }
++        },
++        pos = "CheckExEnv")
+> assign("grid_plot_hook",
++        function() {
++            grid::pushViewport(grid::viewport(width=grid::unit(1, "npc") -
++                               grid::unit(1, "lines"), x=0, just="left"))
++            grid::grid.text(sprintf("help(\"%s\")", nameEx()),
++                            x=grid::unit(1, "npc") + grid::unit(0.5, "lines"),
++                            y=grid::unit(0.8, "npc"), rot=90,
++                            gp=grid::gpar(col="orchid"))
++        },
++        pos = "CheckExEnv")
+> setHook("plot.new",     get("base_plot_hook", pos = "CheckExEnv"))
+> setHook("persp",        get("base_plot_hook", pos = "CheckExEnv"))
+> setHook("grid.newpage", get("grid_plot_hook", pos = "CheckExEnv"))
+> assign("cleanEx",
++        function(env = .GlobalEnv) {
++ 	   rm(list = ls(envir = env, all.names = TRUE), envir = env)
++            RNGkind("default", "default")
++ 	   set.seed(1)
++    	   options(warn = 1)
++ 	   .CheckExEnv <- as.environment("CheckExEnv")
++ 	   delayedAssign("T", stop("T used instead of TRUE"),
++ 		  assign.env = .CheckExEnv)
++ 	   delayedAssign("F", stop("F used instead of FALSE"),
++ 		  assign.env = .CheckExEnv)
++ 	   sch <- search()
++ 	   newitems <- sch[! sch %in% .oldSearch]
++ 	   for(item in rev(newitems))
++                eval(substitute(detach(item), list(item=item)))
++ 	   missitems <- .oldSearch[! .oldSearch %in% sch]
++ 	   if(length(missitems))
++ 	       warning("items ", paste(missitems, collapse=", "),
++ 		       " have been removed from the search path")
++        },
++        pos = "CheckExEnv")
+> assign("ptime", proc.time(), pos = "CheckExEnv")
+> ## at least one package changes these via ps.options(), so do this
+> ## before loading the package.
+> ## Use postscript as incomplete files may be viewable, unlike PDF.
+> ## Choose a size that is close to on-screen devices, fix paper
+> grDevices::ps.options(width = 7, height = 7, paper = "a4", reset = TRUE)
+> grDevices::postscript("distrTEst-Ex.ps")
+> 
+> assign("par.postscript", graphics::par(no.readonly = TRUE), pos = "CheckExEnv")
+> options(contrasts = c(unordered = "contr.treatment", ordered = "contr.poly"))
+> options(warn = 1)
+> library('distrTEst')
+Loading required package: setRNG
+Loading required package: distr
+Loading required package: startupmsg
+:startupmsg>  Utilities for start-up messages (version 0.7)
+:startupmsg> 
+:startupmsg>  For more information see ?"startupmsg",
+:startupmsg>  NEWS("startupmsg")
+
+Loading required package: sfsmisc
+Loading required package: SweaveListingUtils
+:SweaveListingUtils>  Utilities for Sweave together with
+:SweaveListingUtils>  TeX listings package (version 0.4)
+:SweaveListingUtils> 
+:SweaveListingUtils>  Some functions from package 'base'
+:SweaveListingUtils>  are intentionally masked ---see
+:SweaveListingUtils>  SweaveListingMASK().
+:SweaveListingUtils> 
+:SweaveListingUtils>  Note that global options are
+:SweaveListingUtils>  controlled by
+:SweaveListingUtils>  SweaveListingoptions() ---c.f.
+:SweaveListingUtils>  ?"SweaveListingoptions".
+:SweaveListingUtils> 
+:SweaveListingUtils>  For more information see
+:SweaveListingUtils>  ?"SweaveListingUtils",
+:SweaveListingUtils>  NEWS("SweaveListingUtils")
+:SweaveListingUtils>  There is a vignette to this
+:SweaveListingUtils>  package; try
+:SweaveListingUtils>  vignette("ExampleSweaveListingUtils").
+
+
+Attaching package: 'SweaveListingUtils'
+
+
+	The following object(s) are masked from package:base :
+
+	 library,
+	 require 
+
+:distr>  Object orientated implementation of distributions (version
+:distr>  2.2)
+:distr> 
+:distr>  Attention: Arithmetics on distribution objects are
+:distr>  understood as operations on corresponding random variables
+:distr>  (r.v.s); see distrARITH().
+:distr> 
+:distr>  Some functions from package 'stats' are intentionally masked
+:distr>  ---see distrMASK().
+:distr> 
+:distr>  Note that global options are controlled by distroptions()
+:distr>  ---c.f. ?"distroptions".
+:distr> 
+:distr>  For more information see ?"distr", NEWS("distr"), as well as
+:distr>    http://distr.r-forge.r-project.org/
+:distr>  Package "distrDoc" provides a vignette to this package as
+:distr>  well as to several extension packages; try
+:distr>  vignette("distr").
+
+
+Attaching package: 'distr'
+
+
+	The following object(s) are masked from package:stats :
+
+	 df,
+	 qqplot,
+	 sd 
+
+Loading required package: distrSim
+:distrSim>  Simulation classes based on package distr (version
+:distrSim>  2.2)
+:distrSim> 
+:distrSim>  Some functions from package 'stats' are intentionally
+:distrSim>  masked ---see distrSimMASK().
+:distrSim> 
+:distrSim> 
+:distrSim>  For more information see ?"distrSim",
+:distrSim>  NEWS("distrSim"), as well as
+:distrSim>    http://distr.r-forge.r-project.org/
+:distrSim>  Package "distrDoc" provides a vignette to this package
+:distrSim>  as well as to several related packages; try
+:distrSim>  vignette("distr").
+
+
+Attaching package: 'distrSim'
+
+
+	The following object(s) are masked from package:stats :
+
+	 simulate 
+
+
+	The following object(s) are masked from package:base :
+
+	 rbind 
+
+:distrTEst>  Estimation and Testing classes based on package
+:distrTEst>  distr (version 2.2)
+:distrTEst> 
+:distrTEst>  For more information see ?"distrTEst",
+:distrTEst>  NEWS("distrTEst"), as well as
+:distrTEst>    http://distr.r-forge.r-project.org/
+:distrTEst>  Package "distrDoc" provides a vignette to this
+:distrTEst>  package as well as to several related packages; try
+:distrTEst>  vignette("distr").
+
+> 
+> assign(".oldSearch", search(), pos = 'CheckExEnv')
+> assign(".oldNS", loadedNamespaces(), pos = 'CheckExEnv')
+> cleanEx(); nameEx("Evaluation-class")
+> ### * Evaluation-class
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: Evaluation-class
+> ### Title: Class "Evaluation"
+> ### Aliases: Evaluation-class initialize,Evaluation-method
+> ### Keywords: manip
+> 
+> ### ** Examples
+> 
+> N <- Norm() # N is a standard normal distribution.
+> C <- Cauchy() # C is a Cauchy distribution
+> cs <- Contsimulation(filename = "csim",
++                      runs = 5,
++                      samplesize=5000,
++                      seed=setRNG(),
++                      distribution.id = N,
++                      distribution.c = C,
++                      rate = 0.1)
+> simulate(cs)
+> # Each of the 25000 random numbers is ideal (N-distributed) with
+> # probability 0.9 and contaminated (C-distributed) with probability = 0.1
+> summary(cs)
+name of simulation: csim
+rate of contamination: 0.100000
+real Data:
+dimension of the observations: 1
+number of runs: 5
+size of sample: 5000
+, , 1
+
+              [,1]
+Min.    -4.633e+02
+1st Qu. -6.888e-01
+Median  -9.882e-03
+Mean    -5.081e-02
+3rd Qu.  7.174e-01
+Max.     1.133e+02
+
+, , 2
+
+             [,1]
+Min.    -70.36000
+1st Qu.  -0.69270
+Median   -0.01484
+Mean     -0.03787
+3rd Qu.   0.65770
+Max.     35.49000
+
+, , 3
+
+              [,1]
+Min.    -198.00000
+1st Qu.   -0.72410
+Median    -0.05111
+Mean       0.41380
+3rd Qu.    0.67300
+Max.    1753.00000
+
+, , 4
+
+              [,1]
+Min.    -3.247e+02
+1st Qu. -6.898e-01
+Median   5.874e-04
+Mean    -1.625e-01
+3rd Qu.  6.886e-01
+Max.     4.682e+01
+
+, , 5
+
+              [,1]
+Min.    -339.10000
+1st Qu.   -0.65140
+Median     0.05992
+Mean      -0.01367
+3rd Qu.    0.69830
+Max.     131.50000
+
+> ev1 <- evaluate(cs, mean, resname="mean") # estimates the data with mean
+> ev1 # bad results
+An Evaluation Object
+name of Dataobject: object
+name of Datafile: csim
+estimator: mean
+Result: 'data.frame':	5 obs. of  2 variables:
+ $ mean.id: num  -0.00319 -0.00989 -0.02207 0.01369 0.02614
+ $ mean.re: num  -0.0508 -0.0379 0.4138 -0.1625 -0.0137
+> ev2 <- evaluate(cs,median, resname="median") # estimates the data with median
+> ev2 # better results because median is robust
+An Evaluation Object
+name of Dataobject: object
+name of Datafile: csim
+estimator: median
+Result: 'data.frame':	5 obs. of  2 variables:
+ $ medn.id: num  -0.01549 -0.01739 -0.04523 0.00723 0.05344
+ $ medn.re: num  -0.009882 -0.014837 -0.051108 0.000587 0.059924
+> savedata(ev1)
+[1] "csim.mean"
+[1] "ev1"
+[1] "csim.mean.comment"
+[1] "ev1.comment"
+> # saves the evaluation with result as "csim.mean" and without result as
+> # "csim.mean.comment" in the working directory # of R - "csim" is the
+> # filename of the Contsimulation object, mean the name of the estimator
+> rm(ev1)
+> cload("csim.mean")
+> # loads the evaluation without result - the object is called ev1.comment
+> ev1.comment
+An Evaluation Object
+name of Dataobject: object
+name of Datafile: csim
+estimator: mean
+> load("csim.mean") # loads the evaluation with result
+> ev1
+An Evaluation Object
+name of Dataobject: object
+name of Datafile: csim
+estimator: mean
+Result: 'data.frame':	5 obs. of  2 variables:
+ $ mean.id: num  -0.00319 -0.00989 -0.02207 0.01369 0.02614
+ $ mean.re: num  -0.0508 -0.0379 0.4138 -0.1625 -0.0137
+> plot(ev1)
+> #
+> #another function to be evaluated:
+> severalThings<- function(x) {list("mean"=mean(x),"sd"=sd(x), "mad"=mad(x))}
+> ev3 <- evaluate(cs, severalThings, resname="several") 
+> plot(ev3)
+> plot(ev3, ylim=c(0,10), col=c("blue","green", "red"))
+> 
+> 
+> 
+> cleanEx(); nameEx("EvaluationList-class")
+> ### * EvaluationList-class
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: EvaluationList-class
+> ### Title: Class "EvaluationList"
+> ### Aliases: Elist EvaluationList EvaluationList-class
+> ###   initialize,EvaluationList-method savedata,EvaluationList-method
+> ###   name,EvaluationList-method name<-,EvaluationList-method
+> ###   Elist,EvaluationList-method
+> ### Keywords: list manip
+> 
+> ### ** Examples
+> 
+> N <- Norm() # N is a standard normal distribution.
+> C <- Cauchy() # C is a Cauchy distribution
+> cs <- Contsimulation(filename = "csim",
++                      runs = 15,
++                      samplesize=500,
++                      seed=setRNG(),
++                      distribution.id = N,
++                      distribution.c = C,
++                      rate = 0.1)
+> simulate(cs)
+> # Each of the 25000 random numbers is ideal (N-distributed) with
+> # probability 0.9 and contaminated (C-distributed) with probability = 0.1
+> summary(cs)
+name of simulation: csim
+rate of contamination: 0.100000
+real Data:
+dimension of the observations: 1
+number of runs: 15
+size of sample: 500
+, , 1
+
+             [,1]
+Min.    -7.832000
+1st Qu. -0.592900
+Median  -0.006142
+Mean     0.262100
+3rd Qu.  0.681900
+Max.    76.610000
+
+, , 2
+
+             [,1]
+Min.    -20.18000
+1st Qu.  -0.79010
+Median   -0.03902
+Mean      0.09946
+3rd Qu.   0.71340
+Max.     69.34000
+
+, , 3
+
+              [,1]
+Min.    -107.60000
+1st Qu.   -0.71170
+Median    -0.07457
+Mean      -0.23260
+3rd Qu.    0.72740
+Max.       4.94800
+
+, , 4
+
+             [,1]
+Min.    -16.20000
+1st Qu.  -0.67080
+Median    0.02934
+Mean      0.17750
+3rd Qu.   0.76710
+Max.     52.53000
+
+, , 5
+
+            [,1]
+Min.    -4.05100
+1st Qu. -0.69020
+Median  -0.05908
+Mean     0.01636
+3rd Qu.  0.73180
+Max.    14.23000
+
+, , 6
+
+            [,1]
+Min.    -6.67900
+1st Qu. -0.60520
+Median  -0.01256
+Mean    -0.01041
+3rd Qu.  0.67910
+Max.     6.83300
+
+> ev1 <- evaluate(cs, mean) # estimates the data with mean
+> ev1 # bad results
+An Evaluation Object
+name of Dataobject: object
+name of Datafile: csim
+estimator: mean
+Result: 'data.frame':	15 obs. of  2 variables:
+ $ mean.id: num  0.02264 -0.04594 -0.00299 -0.02954 0.0091 ...
+ $ mean.re: num  0.2621 0.0995 -0.2326 0.1775 0.0164 ...
+> ev2 <- evaluate(cs,median) # estimates the data with median
+> ev2 # better results because median is robust
+An Evaluation Object
+name of Dataobject: object
+name of Datafile: csim
+estimator: median
+Result: 'data.frame':	15 obs. of  2 variables:
+ $ medn.id: num  -0.0368 -0.0213 -0.0536 -0.0189 -0.0482 ...
+ $ medn.re: num  -0.00614 -0.03902 -0.07457 0.02934 -0.05908 ...
+> savedata(ev1)
+[1] "csim.mean"
+[1] "ev1"
+[1] "csim.mean.comment"
+[1] "ev1.comment"
+> # saves the EvaluationList with result as "csim.mean" and without result as
+> # "csim.mean.comment" in the working directory # of R - "csim" is the
+> # filename of the Contsimulation object, mean the name of the estimator
+> rm(ev1)
+> cload("csim.mean")
+> # loads the EvaluationList without result - the object is called ev1.comment
+> ev1.comment
+An Evaluation Object
+name of Dataobject: object
+name of Datafile: csim
+estimator: mean
+> load("csim.mean") # loads the EvaluationList with result
+> ev1
+An Evaluation Object
+name of Dataobject: object
+name of Datafile: csim
+estimator: mean
+Result: 'data.frame':	15 obs. of  2 variables:
+ $ mean.id: num  0.02264 -0.04594 -0.00299 -0.02954 0.0091 ...
+ $ mean.re: num  0.2621 0.0995 -0.2326 0.1775 0.0164 ...
+> ElistObj <- EvaluationList(ev1,ev2,name0="myEvalList")
+Warning in all(lapply(object@Elist, function(x) identical(x@call.ev$object,  :
+  coercing argument of type 'list' to logical
+Warning in all(lapply(object@Elist, function(x) identical(x@Data@seed, object@Elist[[1]]@Data@seed))) :
+  coercing argument of type 'list' to logical
+Warning in all(lapply(object@Elist, function(x) identical(body(x@Data@distribution.id@p),  :
+  coercing argument of type 'list' to logical
+Warning in all(lapply(object@Elist, function(x) identical(body(x@Data@distribution.c@p),  :
+  coercing argument of type 'list' to logical
+> plot(ElistObj,ylim=matrix(c(-0.5,0.5,0.5,4),nrow=2),main=c("location","scale"))
+Warning in par(op) : graphical parameter "cin" cannot be set
+Warning in par(op) : graphical parameter "cra" cannot be set
+Warning in par(op) : graphical parameter "csi" cannot be set
+Warning in par(op) : graphical parameter "cxy" cannot be set
+Warning in par(op) : graphical parameter "din" cannot be set
+> plot(ElistObj,ylim=c(-0.5,0.5),main=c("location"),runs0=3:12,dims0=1,evals0=2)
+Warning in par(op) : graphical parameter "cin" cannot be set
+Warning in par(op) : graphical parameter "cra" cannot be set
+Warning in par(op) : graphical parameter "csi" cannot be set
+Warning in par(op) : graphical parameter "cxy" cannot be set
+Warning in par(op) : graphical parameter "din" cannot be set
+> ElistObj
+An EvaluationList Object
+name of Evaluation List: myEvalList
+name of Dataobject: object
+name of Datafile: csim
+----------------------------------
+An Evaluation Object
+estimator: mean
+Result: 'data.frame':	15 obs. of  2 variables:
+ $ mean.id: num  0.02264 -0.04594 -0.00299 -0.02954 0.0091 ...
+ $ mean.re: num  0.2621 0.0995 -0.2326 0.1775 0.0164 ...
+----------------------------------
+An Evaluation Object
+estimator: median
+Result: 'data.frame':	15 obs. of  2 variables:
+ $ medn.id: num  -0.0368 -0.0213 -0.0536 -0.0189 -0.0482 ...
+ $ medn.re: num  -0.00614 -0.03902 -0.07457 0.02934 -0.05908 ...
+> summary(ElistObj)
+name of Evaluation List: myEvalList
+name of Dataobject: object
+name of Datafile: csim
+----------------------------------
+name of Evaluation: object
+estimator: mean
+Result:
+    mean.id             mean.re        
+ Min.   :-0.056414   Min.   :-0.33898  
+ 1st Qu.:-0.031666   1st Qu.:-0.03277  
+ Median :-0.006922   Median : 0.02029  
+ Mean   :-0.006906   Mean   : 0.02481  
+ 3rd Qu.: 0.005326   3rd Qu.: 0.13042  
+ Max.   : 0.089858   Max.   : 0.26208  
+----------------------------------
+name of Evaluation: object
+estimator: median
+Result:
+    medn.id            medn.re        
+ Min.   :-0.09221   Min.   :-0.13948  
+ 1st Qu.:-0.05020   1st Qu.:-0.03568  
+ Median :-0.02996   Median :-0.02969  
+ Mean   :-0.01646   Mean   :-0.01515  
+ 3rd Qu.: 0.01899   3rd Qu.: 0.02496  
+ Max.   : 0.08584   Max.   : 0.07802  
+> 
+> 
+> 
+> cleanEx(); nameEx("distrTEstoptions")
+> ### * distrTEstoptions
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: distrTEstoptions
+> ### Title: functions to change the global variables of the package
+> ###   `distrTEst'
+> ### Aliases: distrTEstoptions getdistrTEstOption
+> ###   MaxNumberofPlottedEvaluationDims MaxNumberofPlottedEvaluations
+> ###   MaxNumberofSummarizedEvaluationDims MaxNumberofSummarizedEvaluations
+> ### Keywords: misc
+> 
+> ### ** Examples
+> 
+> distrTEstoptions()
+$MaxNumberofPlottedEvaluationDims
+[1] 6
+
+$MaxNumberofPlottedEvaluations
+[1] 6
+
+$MaxNumberofSummarizedEvaluations
+[1] 15
+
+$MaxNumberofPrintedEvaluations
+[1] 15
+
+> distrTEstoptions("MaxNumberofPlottedEvaluationDims")
+$MaxNumberofPlottedEvaluationDims
+[1] 6
+
+> distrTEstoptions("MaxNumberofPlottedEvaluationDims" = 5)
+> # or
+> getdistrTEstOption("MaxNumberofPlottedEvaluationDims")
+[1] 5
+> 
+> 
+> 
+> ### * <FOOTER>
+> ###
+> cat("Time elapsed: ", proc.time() - get("ptime", pos = 'CheckExEnv'),"\n")
+Time elapsed:  3.116 0.036 3.233 0 0 
+> grDevices::dev.off()
+null device 
+          1 
+> ###
+> ### Local variables: ***
+> ### mode: outline-minor ***
+> ### outline-regexp: "\\(> \\)?### [*]+" ***
+> ### End: ***
+> quit('no')

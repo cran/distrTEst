@@ -12,17 +12,17 @@ It does not seem to be very useful to generate a new object this way, however.
 It is to be preferred to use "evaluate" with a Dataclass object!}
 \section{Slots}{
   \describe{
-    \item{\code{call.ev}:}{Object of class \code{"call"} the call which created the object, 
+    \item{\code{call.ev}}{Object of class \code{"call"}: the call which created the object, 
       e.g.; ``evaluate(Dataclassobject,mean)'' }
-    \item{\code{Data}:}{Object of class \code{"Dataclass"}: the data set / simulation on which the evaluation takes place.}
-    \item{\code{estimator}:}{Object of class \code{"OptionalFunction"}: estimation function used; this estimation function
+    \item{\code{Data}}{Object of class \code{"Dataclass"}: the data set / simulation on which the evaluation takes place.}
+    \item{\code{estimator}}{Object of class \code{"OptionalFunction"}: estimation function used; this estimation function 
     should be able to deal with data in matrix form \code{samplesize} x \code{obsDim} and 
     should return either a univariate result or a vector (with named coordinates, if possible).}
-    \item{\code{filename}:}{Object of class \code{"character"}: the filename of the evaluation;
+    \item{\code{filename}}{Object of class \code{"character"}: the filename of the evaluation;
                         by default the filename of the Dataclass object, which was called by evaluate}
-    \item{\code{name}:}{Object of class \code{"character"}: the name of the evaluation; by default the name of the
+    \item{\code{name}}{Object of class \code{"character"}: the name of the evaluation; by default the name of the
                         Dataclass object, which was called by evaluate }
-    \item{\code{result}:}{Object of class \code{"DataframeorNULL"}: the result of the evaluation of the estimation on data }
+    \item{\code{result}}{Object of class \code{"DataframeorNULL"}: the result of the evaluation of the estimation on data }
   }
 }
 \section{Accessors/Replacement functions}{
