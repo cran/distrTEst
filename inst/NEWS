@@ -3,6 +3,15 @@
 ######################################################################
 
 ##############
+v 2.3
+##############
+
+No extra changes this time
+
++ DESCRIPTION files and package-help files gain a tag 
+  SVNRevision to be filled by get[All]RevNr.R from utils in distr
+
+##############
 v 2.2
 ##############
 

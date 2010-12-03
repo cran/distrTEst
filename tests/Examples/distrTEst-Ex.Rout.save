@@ -1,7 +1,8 @@
 
-R version 2.10.0 beta (2009-10-15 r50107)
-Copyright (C) 2009 The R Foundation for Statistical Computing
+R version 2.12.1 Patched (2011-01-04 r53913)
+Copyright (C) 2011 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
+Platform: x86_64-unknown-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -17,79 +18,14 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
-> ### * <HEADER>
-> ###
-> attach(NULL, name = "CheckExEnv")
-> assign("nameEx",
-+        local({
-+ 	   s <- "__{must remake R-ex/*.R}__"
-+            function(new) {
-+                if(!missing(new)) s <<- new else s
-+            }
-+        }),
-+        pos = "CheckExEnv")
-> ## Add some hooks to label plot pages for base and grid graphics
-> assign("base_plot_hook",
-+        function() {
-+            pp <- par(c("mfg","mfcol","oma","mar"))
-+            if(all(pp$mfg[1:2] == c(1, pp$mfcol[2]))) {
-+                outer <- (oma4 <- pp$oma[4]) > 0; mar4 <- pp$mar[4]
-+                mtext(sprintf("help(\"%s\")", nameEx()), side = 4,
-+                      line = if(outer)max(1, oma4 - 1) else min(1, mar4 - 1),
-+                outer = outer, adj = 1, cex = .8, col = "orchid", las=3)
-+            }
-+        },
-+        pos = "CheckExEnv")
-> assign("grid_plot_hook",
-+        function() {
-+            grid::pushViewport(grid::viewport(width=grid::unit(1, "npc") -
-+                               grid::unit(1, "lines"), x=0, just="left"))
-+            grid::grid.text(sprintf("help(\"%s\")", nameEx()),
-+                            x=grid::unit(1, "npc") + grid::unit(0.5, "lines"),
-+                            y=grid::unit(0.8, "npc"), rot=90,
-+                            gp=grid::gpar(col="orchid"))
-+        },
-+        pos = "CheckExEnv")
-> setHook("plot.new",     get("base_plot_hook", pos = "CheckExEnv"))
-> setHook("persp",        get("base_plot_hook", pos = "CheckExEnv"))
-> setHook("grid.newpage", get("grid_plot_hook", pos = "CheckExEnv"))
-> assign("cleanEx",
-+        function(env = .GlobalEnv) {
-+ 	   rm(list = ls(envir = env, all.names = TRUE), envir = env)
-+            RNGkind("default", "default")
-+ 	   set.seed(1)
-+    	   options(warn = 1)
-+ 	   .CheckExEnv <- as.environment("CheckExEnv")
-+ 	   delayedAssign("T", stop("T used instead of TRUE"),
-+ 		  assign.env = .CheckExEnv)
-+ 	   delayedAssign("F", stop("F used instead of FALSE"),
-+ 		  assign.env = .CheckExEnv)
-+ 	   sch <- search()
-+ 	   newitems <- sch[! sch %in% .oldSearch]
-+ 	   for(item in rev(newitems))
-+                eval(substitute(detach(item), list(item=item)))
-+ 	   missitems <- .oldSearch[! .oldSearch %in% sch]
-+ 	   if(length(missitems))
-+ 	       warning("items ", paste(missitems, collapse=", "),
-+ 		       " have been removed from the search path")
-+        },
-+        pos = "CheckExEnv")
-> assign("ptime", proc.time(), pos = "CheckExEnv")
-> ## at least one package changes these via ps.options(), so do this
-> ## before loading the package.
-> ## Use postscript as incomplete files may be viewable, unlike PDF.
-> ## Choose a size that is close to on-screen devices, fix paper
-> grDevices::ps.options(width = 7, height = 7, paper = "a4", reset = TRUE)
-> grDevices::postscript("distrTEst-Ex.ps")
-> 
-> assign("par.postscript", graphics::par(no.readonly = TRUE), pos = "CheckExEnv")
-> options(contrasts = c(unordered = "contr.treatment", ordered = "contr.poly"))
+> pkgname <- "distrTEst"
+> source(file.path(R.home("share"), "R", "examples-header.R"))
 > options(warn = 1)
 > library('distrTEst')
 Loading required package: setRNG
 Loading required package: distr
 Loading required package: startupmsg
-:startupmsg>  Utilities for start-up messages (version 0.7)
+:startupmsg>  Utilities for start-up messages (version 0.7.1)
 :startupmsg> 
 :startupmsg>  For more information see ?"startupmsg",
 :startupmsg>  NEWS("startupmsg")
@@ -97,7 +33,7 @@ Loading required package: startupmsg
 Loading required package: sfsmisc
 Loading required package: SweaveListingUtils
 :SweaveListingUtils>  Utilities for Sweave together with
-:SweaveListingUtils>  TeX listings package (version 0.4)
+:SweaveListingUtils>  TeX listings package (version 0.5)
 :SweaveListingUtils> 
 :SweaveListingUtils>  Some functions from package 'base'
 :SweaveListingUtils>  are intentionally masked ---see
@@ -118,14 +54,12 @@ Loading required package: SweaveListingUtils
 
 Attaching package: 'SweaveListingUtils'
 
+The following object(s) are masked from 'package:base':
 
-	The following object(s) are masked from package:base :
+    library, require
 
-	 library,
-	 require 
-
-:distr>  Object orientated implementation of distributions (version
-:distr>  2.2)
+:distr>  Object oriented implementation of distributions (version
+:distr>  2.3)
 :distr> 
 :distr>  Attention: Arithmetics on distribution objects are
 :distr>  understood as operations on corresponding random variables
@@ -146,16 +80,13 @@ Attaching package: 'SweaveListingUtils'
 
 Attaching package: 'distr'
 
+The following object(s) are masked from 'package:stats':
 
-	The following object(s) are masked from package:stats :
-
-	 df,
-	 qqplot,
-	 sd 
+    df, qqplot, sd
 
 Loading required package: distrSim
 :distrSim>  Simulation classes based on package distr (version
-:distrSim>  2.2)
+:distrSim>  2.3)
 :distrSim> 
 :distrSim>  Some functions from package 'stats' are intentionally
 :distrSim>  masked ---see distrSimMASK().
@@ -171,18 +102,16 @@ Loading required package: distrSim
 
 Attaching package: 'distrSim'
 
+The following object(s) are masked from 'package:stats':
 
-	The following object(s) are masked from package:stats :
+    simulate
 
-	 simulate 
+The following object(s) are masked from 'package:base':
 
-
-	The following object(s) are masked from package:base :
-
-	 rbind 
+    rbind
 
 :distrTEst>  Estimation and Testing classes based on package
-:distrTEst>  distr (version 2.2)
+:distrTEst>  distr (version 2.3)
 :distrTEst> 
 :distrTEst>  For more information see ?"distrTEst",
 :distrTEst>  NEWS("distrTEst"), as well as
@@ -193,8 +122,8 @@ Attaching package: 'distrSim'
 
 > 
 > assign(".oldSearch", search(), pos = 'CheckExEnv')
-> assign(".oldNS", loadedNamespaces(), pos = 'CheckExEnv')
-> cleanEx(); nameEx("Evaluation-class")
+> cleanEx()
+> nameEx("Evaluation-class")
 > ### * Evaluation-class
 > 
 > flush(stderr()); flush(stdout())
@@ -328,7 +257,8 @@ Result: 'data.frame':	5 obs. of  2 variables:
 > 
 > 
 > 
-> cleanEx(); nameEx("EvaluationList-class")
+> cleanEx()
+> nameEx("EvaluationList-class")
 > ### * EvaluationList-class
 > 
 > flush(stderr()); flush(stdout())
@@ -466,26 +396,8 @@ Result: 'data.frame':	15 obs. of  2 variables:
  $ mean.id: num  0.02264 -0.04594 -0.00299 -0.02954 0.0091 ...
  $ mean.re: num  0.2621 0.0995 -0.2326 0.1775 0.0164 ...
 > ElistObj <- EvaluationList(ev1,ev2,name0="myEvalList")
-Warning in all(lapply(object@Elist, function(x) identical(x@call.ev$object,  :
-  coercing argument of type 'list' to logical
-Warning in all(lapply(object@Elist, function(x) identical(x@Data@seed, object@Elist[[1]]@Data@seed))) :
-  coercing argument of type 'list' to logical
-Warning in all(lapply(object@Elist, function(x) identical(body(x@Data@distribution.id@p),  :
-  coercing argument of type 'list' to logical
-Warning in all(lapply(object@Elist, function(x) identical(body(x@Data@distribution.c@p),  :
-  coercing argument of type 'list' to logical
 > plot(ElistObj,ylim=matrix(c(-0.5,0.5,0.5,4),nrow=2),main=c("location","scale"))
-Warning in par(op) : graphical parameter "cin" cannot be set
-Warning in par(op) : graphical parameter "cra" cannot be set
-Warning in par(op) : graphical parameter "csi" cannot be set
-Warning in par(op) : graphical parameter "cxy" cannot be set
-Warning in par(op) : graphical parameter "din" cannot be set
 > plot(ElistObj,ylim=c(-0.5,0.5),main=c("location"),runs0=3:12,dims0=1,evals0=2)
-Warning in par(op) : graphical parameter "cin" cannot be set
-Warning in par(op) : graphical parameter "cra" cannot be set
-Warning in par(op) : graphical parameter "csi" cannot be set
-Warning in par(op) : graphical parameter "cxy" cannot be set
-Warning in par(op) : graphical parameter "din" cannot be set
 > ElistObj
 An EvaluationList Object
 name of Evaluation List: myEvalList
@@ -532,14 +444,15 @@ Result:
 > 
 > 
 > 
-> cleanEx(); nameEx("distrTEstoptions")
+> cleanEx()
+> nameEx("distrTEstoptions")
 > ### * distrTEstoptions
 > 
 > flush(stderr()); flush(stdout())
 > 
 > ### Name: distrTEstoptions
 > ### Title: functions to change the global variables of the package
-> ###   `distrTEst'
+> ###   'distrTEst'
 > ### Aliases: distrTEstoptions getdistrTEstOption
 > ###   MaxNumberofPlottedEvaluationDims MaxNumberofPlottedEvaluations
 > ###   MaxNumberofSummarizedEvaluationDims MaxNumberofSummarizedEvaluations
@@ -574,7 +487,7 @@ $MaxNumberofPlottedEvaluationDims
 > ### * <FOOTER>
 > ###
 > cat("Time elapsed: ", proc.time() - get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  3.116 0.036 3.233 0 0 
+Time elapsed:  1.72 0.05 1.78 0 0 
 > grDevices::dev.off()
 null device 
           1 

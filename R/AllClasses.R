@@ -51,50 +51,50 @@ setClass("EvaluationList",
                            ncol = 2, byrow = TRUE)
            if(!all( apply(dimes, 2, function(x) all(x == x[1]))))
               stop("the result slots of all list elements have to be of the same dimension")
-           if(!all(lapply(object@Elist,
+           if(!all(as.logical(lapply(object@Elist,
                    function(x)
                       identical(x@call.ev$object,
                                object@Elist[[1]]@call.ev$object)
                          )
-                   )
+                   ))
              )
               stop("the call slots of all list elements have to have the same object[=Data]-argument")
            if((is(object@Elist[[1]]@Data,"Simulation"))||
               (is(object@Elist[[1]]@Data,"Contsimulation")))
-              {if(!all(lapply(object@Elist,
+              {if(!all(as.logical(lapply(object@Elist,
                               function(x) identical(x@Data@seed,
                                                     object@Elist[[1]]@Data@seed)
-                              )))
+                              ))))
                    stop("the seeds of the Data slots of all list elements have to coincide")
                if(is(object@Elist[[1]]@Data,"Contsimulation"))
-                   {if(!all(lapply(object@Elist,
+                   {if(!all(as.logical(lapply(object@Elist,
                               function(x) identical(
                                 body(x@Data@distribution.id@p),
                                 body(object@Elist[[1]]@Data@distribution.id@p)))
                             )
-                       )
+                       ))
                         stop("the ideal distribution of the Data slots of all list elements have to coincide")
-                    if(!all(lapply(object@Elist,
+                    if(!all(as.logical(lapply(object@Elist,
                                function(x) identical(
                                  body(x@Data@distribution.c@p),
                                  body(object@Elist[[1]]@Data@distribution.c@p)))
                            )
-                      )
+                      ))
                         stop("the contaminating distribution of the Data slots of all list elements have to coincide")
                     }
                else
-                    if(!all(lapply(object@Elist,
+                    if(!all(as.logical(lapply(object@Elist,
                                function(x) identical(
                                  body(x@Data@distribution@p),
-                                 body(object@Elist[[1]]@Data@distribution@p)))))
+                                 body(object@Elist[[1]]@Data@distribution@p))))))
                         stop("the distribution of the Data slots of all list elements have to coincide")
 
            }else{
-               if(!all(lapply(object@Elist,
+               if(!all(as.logical(lapply(object@Elist,
                           function(x) identical(
                             x@Data,object@Elist[[1]]@Data))
                        )
-                 )
+                 ))
                    stop("the Data slots of all list elements have to coincide")
            }
          }

@@ -115,8 +115,9 @@ setMethod("plot",signature(x="EvaluationList",y="missing"),
            ylim0[,c2*c1+(1:c3)] <- ylim1[,1:c3]
         options("warn" = o.warn) }
 
-  op <- par()
-  on.exit(par(op))
+  opar <- par(no.readonly = TRUE)
+  # opar$cin <- opar$cra <- opar$csi <- opar$cxy <-  opar$din <- NULL
+  on.exit(par(opar))
   par(mfrow=c(resdim0,1))
 
 
