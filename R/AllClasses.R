@@ -1,5 +1,5 @@
 .onLoad <- function(lib, pkg){
-    require("methods", character = TRUE, quietly = TRUE) 
+#    require("methods", character = TRUE, quietly = TRUE) 
 }
 
 

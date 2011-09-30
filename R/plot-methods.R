@@ -8,7 +8,7 @@ setMethod("plot",signature(x="Evaluation",y="missing"),
             ldim0 <- min(getdistrTEstOption("MaxNumberofPlottedEvaluationDims"),
                          length(dims0))
             if(ldim0<length(dims0))
-                warning(paste("your evaluation is too big; only ", lobs,
+                warning(paste("your evaluation is too big; only ", ldim0,
                               "evaluation dimensions are plotted"))
             boxplot(result(x)[runs0,dims0[1:ldim0]],...)
           }
@@ -33,7 +33,7 @@ setMethod("plot",signature(x="EvaluationList",y="missing"),
   if((ldim0<length(dims0))||(levals0<length(evals0)))
                 warning(gettextf(
 "your evaluation list is too big; only %i x%i evaluations x dimensions are plotted",
-                        levals, lobs))
+                        levals0, ldim0))
 
   evallist <- Elist(x)
   len <- length(evallist)

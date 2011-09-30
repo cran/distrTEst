@@ -1,5 +1,5 @@
 
-R version 2.12.1 Patched (2011-01-04 r53913)
+R version 2.13.1 Patched (2011-09-08 r56992)
 Copyright (C) 2011 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 Platform: x86_64-unknown-linux-gnu (64-bit)
@@ -33,7 +33,8 @@ Loading required package: startupmsg
 Loading required package: sfsmisc
 Loading required package: SweaveListingUtils
 :SweaveListingUtils>  Utilities for Sweave together with
-:SweaveListingUtils>  TeX listings package (version 0.5)
+:SweaveListingUtils>  TeX listings package (version
+:SweaveListingUtils>  0.5.2)
 :SweaveListingUtils> 
 :SweaveListingUtils>  Some functions from package 'base'
 :SweaveListingUtils>  are intentionally masked ---see
@@ -59,7 +60,7 @@ The following object(s) are masked from 'package:base':
     library, require
 
 :distr>  Object oriented implementation of distributions (version
-:distr>  2.3)
+:distr>  2.3.3)
 :distr> 
 :distr>  Attention: Arithmetics on distribution objects are
 :distr>  understood as operations on corresponding random variables
@@ -86,7 +87,7 @@ The following object(s) are masked from 'package:stats':
 
 Loading required package: distrSim
 :distrSim>  Simulation classes based on package distr (version
-:distrSim>  2.3)
+:distrSim>  2.3.1)
 :distrSim> 
 :distrSim>  Some functions from package 'stats' are intentionally
 :distrSim>  masked ---see distrSimMASK().
@@ -111,7 +112,7 @@ The following object(s) are masked from 'package:base':
     rbind
 
 :distrTEst>  Estimation and Testing classes based on package
-:distrTEst>  distr (version 2.3)
+:distrTEst>  distr (version 2.3.1)
 :distrTEst> 
 :distrTEst>  For more information see ?"distrTEst",
 :distrTEst>  NEWS("distrTEst"), as well as
@@ -487,7 +488,7 @@ $MaxNumberofPlottedEvaluationDims
 > ### * <FOOTER>
 > ###
 > cat("Time elapsed: ", proc.time() - get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  1.72 0.05 1.78 0 0 
+Time elapsed:  2.55 0.02 2.575 0 0 
 > grDevices::dev.off()
 null device 
           1 

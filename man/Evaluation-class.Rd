@@ -97,7 +97,7 @@ ev1
 plot(ev1)
 #
 #another function to be evaluated:
-severalThings<- function(x) {list("mean"=mean(x),"sd"=sd(x), "mad"=mad(x))}
+severalThings<- function(x) {list("mean"=mean(x),"sd"=sd(as.vector(x)), "mad"=mad(x))}
 ev3 <- evaluate(cs, severalThings, resname="several") 
 plot(ev3)
 plot(ev3, ylim=c(0,10), col=c("blue","green", "red"))

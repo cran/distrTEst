@@ -26,7 +26,7 @@ setMethod("print","EvaluationList",
                            length(evals0))
 
             if(levals0<length(evals0))
-                warning(paste("your evaluation list is too big; only ", levals,
+                warning(paste("your evaluation list is too big; only ", levals0,
                               "evaluations are printed"))
 
             cat(gettextf("An EvaluationList Object\n"))
