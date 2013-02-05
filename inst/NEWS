@@ -3,6 +3,18 @@
 ######################################################################
 
 ##############
+v 2.4
+##############
+
+under the hood:
++ some coercings to logical forced, e.g. AllClasses.R 
++ fixed (new discovered) error in distrTEst (sd no longer applies to matrices).
++ removed lazyload tag in DESCRIPTION
++ added DESCRIPTION tag "ByteCompile" to all our packages
++ updating maintainer email address and URL.
++ deleted no longer needed chm folders
+
+##############
 v 2.3
 ##############
 
