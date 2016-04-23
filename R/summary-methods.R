@@ -26,7 +26,7 @@ setMethod("summary","EvaluationList",
             if(levals0<length(evals0))
                warning(gettextf(
   "Your evaluation list is too big; only %i% evaluations are printed",
-                        levals ))
+                        levels ))
             cat(gettextf("name of Evaluation List: %s\n",name(object)))
             if(!is.null(name(Elist(object)[[1]])))
                 cat(gettextf("name of Dataobject: %s\n",

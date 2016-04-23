@@ -1,7 +1,9 @@
 import("methods")
-import("startupmsg")
+importFrom("graphics", "boxplot", "par")
+importFrom("utils", "str")
 import("distrSim")
 import("setRNG")
+importFrom("startupmsg", "buildStartupMessage", "infoShow")
 
 export("EvaluationList", "distrTEstoptions", "getdistrTEstOption")
 exportClasses("numericorNULL", "Evaluation", "EvaluationList",

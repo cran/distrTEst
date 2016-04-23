@@ -46,7 +46,7 @@ Objects may be created by the generating function \code{EvaluationList}, i.e.;
 \author{
   Thomas Stabla \email{statho3@web.de},\cr 
   Florian Camphausen \email{fcampi@gmx.de},\cr
-  Peter Ruckdeschel \email{Peter.Ruckdeschel@itwm.fraunhofer.de},\cr 
+  Peter Ruckdeschel \email{peter.ruckdeschel@uni-oldenburg.de},\cr 
   Matthias Kohl \email{Matthias.Kohl@stamats.de}
   }
 

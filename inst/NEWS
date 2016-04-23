@@ -3,6 +3,14 @@
 ######################################################################
 
 ##############
+v 2.6
+##############
+
+user-visible CHANGES:
++ title changed to title style / capitalization
+
+
+##############
 v 2.5
 ##############
 
@@ -10,6 +18,7 @@ user-visible CHANGES:
 
 GENERAL ENHANCEMENTS:
 + cleaned DESCRIPTION and NAMESPACE file as to Imports/Depends
++ enhanced imports in DESCRIPTION by explicating second order imports
 
 under the hood:
 added .Rbuildignore

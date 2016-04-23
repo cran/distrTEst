@@ -14,7 +14,6 @@ citEntry(entry="Article",
          number       = 2,
          pages        = "2--6",
          month        = "May",
-         url = "http://www.uni-bayreuth.de/departments/math/org/mathe7/DISTR/distr.pdf",
          pdf          = "http://CRAN.R-project.org/doc/Rnews/Rnews_2006-2.pdf",
 textVersion = paste("Ruckdeschel, P., Kohl, M., Stabla, T., & Camphausen, F. (2006)",
                     "S4 Classes for Distributions"))
