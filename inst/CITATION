@@ -14,7 +14,7 @@ citEntry(entry="Article",
          number       = 2,
          pages        = "2--6",
          month        = "May",
-         pdf          = "http://CRAN.R-project.org/doc/Rnews/Rnews_2006-2.pdf",
+         pdf          = "https://CRAN.R-project.org/doc/Rnews/Rnews_2006-2.pdf",
 textVersion = paste("Ruckdeschel, P., Kohl, M., Stabla, T., & Camphausen, F. (2006)",
                     "S4 Classes for Distributions"))
 

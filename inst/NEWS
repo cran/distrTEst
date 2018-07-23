@@ -2,6 +2,17 @@
 #  News: to package distrTEst 
 ######################################################################
 
+(first two numbers of package versions do not necessarily reflect 
+ package-individual development, but rather are chosen for the 
+ distrXXX family as a whole in order to ease updating "depends" 
+ information)
+
+##############
+v 2.7
+##############
+
+no changes in this version
+
 ##############
 v 2.6
 ##############
