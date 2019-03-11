@@ -1,4 +1,4 @@
-92f99f08184c72cbd677244c4fc9cdd1 *DESCRIPTION
+e327cd8f5324a79d8551517f1444e992 *DESCRIPTION
 b460fe8b828646e0541d72bc54ca1ed2 *NAMESPACE
 02597d3ddf8880cc0429a15c66dade51 *R/AllClasses.R
 355bd09920bc65a5841e74770de98ef9 *R/AllGenerics.R
@@ -8,15 +8,15 @@ e091b13e14dcc6323e951807ef08182b *R/EvaluationClass.R
 b37929ec396a6ac1bed7160fe008a803 *R/Utility.R
 9ebba82388d0745463ce5c03c16d25ce *R/distrTEstOptions.R
 9dd82cb91b4f0d404e24e1562e35a6fe *R/evaluation.R
-f6b4f1a96b86cc7992438827c00369c1 *R/plot-methods.R
+3a17a86548aeb1b91a53ff0d6733a206 *R/plot-methods.R
 1b12fe9109890a4f9399ac1f4a2e066c *R/print-show-methods.R
 3e1e6ac4708cdedf14eb9dc08d3318e7 *R/summary-methods.R
 daee41a4c8451fac3d7495b439a59055 *demo/00Index
 75feda2b67e507c7ec6de3f9d01bb9b4 *demo/SimulateandEstimate.R
 0c653bbc37eb73dab384d3cb71f86b21 *inst/CITATION
-55abee4a067ff06af137e783d69115b1 *inst/NEWS
+3d845feea3f92bf3cd7adad6bcb49b7d *inst/NEWS
 852408c63bdb9cc13b8d94f8dbc1ec1d *inst/TOBEDONE
-23490ffa8a8f7ebd21ba8bfdf776a55b *man/0distrTEst-package.Rd
+f53437753d3583fa7c85aefa375114e7 *man/0distrTEst-package.Rd
 6f83500e05ee962318cce966a128fcbb *man/Data-methods.Rd
 c736e4df59b0bbfdd1f5d71477f279cf *man/Evaluation-class.Rd
 3b611f5b7a3aa9543a2329cc5e0b418c *man/EvaluationList-class.Rd
@@ -28,7 +28,7 @@ feb6e6f702606ac7225bdc712c1b430b *man/evaluate-methods.Rd
 b11330a7d8789c0c1cfec67cb5499945 *man/filename-methods.Rd
 d3d8ccef57a8153e0ba625300c516361 *man/name-methods.Rd
 88c6a9c30c06c29b1f5c19965ecc261d *man/numericorNULL-class.Rd
-18abf44a681075917719255e84e0dfaa *man/plot-methods.Rd
+7cfc9bc74861269d6633790b9dfa857c *man/plot-methods.Rd
 b83cae9637180d0b10977a32c65afa09 *man/print-methods.Rd
 87b8644236614f2434b8556e72e9e571 *man/result-methods.Rd
 87a8c1891afeb539df39d977eb567bfb *man/savedata-methods.Rd

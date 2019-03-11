@@ -4,13 +4,20 @@ setMethod("plot",signature(x="Evaluation",y="missing"),
           function(x,
                    runs0=1:nrow(result(x)), dims0=1:ncol(result(x)),  ...
           ){
-            dots <- list(...)
+            args0 <- list(x=x, runs0=runs0, dims0=dims0)
+            mc <- match.call(call = sys.call(sys.parent(1)))
+            dots <- match.call(call = sys.call(sys.parent(1)),
+                               expand.dots = FALSE)$"..."
+            plotInfo <- list(call = mc, dots=dots, args=args0)
             ldim0 <- min(getdistrTEstOption("MaxNumberofPlottedEvaluationDims"),
                          length(dims0))
             if(ldim0<length(dims0))
                 warning(paste("your evaluation is too big; only ", ldim0,
                               "evaluation dimensions are plotted"))
-            boxplot(result(x)[runs0,dims0[1:ldim0]],...)
+            plotInfo$boxplot <- boxplot(result(x)[runs0,dims0[1:ldim0]],...)
+            plotInfo$usr <- par("usr")
+            class(plotInfo) <- c("plotInfo","DiagnInfo")
+            return(invisible(plotInfo))
           }
           )
 
@@ -23,7 +30,12 @@ setMethod("plot",signature(x="EvaluationList",y="missing"),
                                      ncol(result(Elist(x)[[1]]))/2,
                                      ncol(result(Elist(x)[[1]]))),
                     evals0=1:length(Elist(x)), ... )
-{ dots <- list(...)
+{           args0 <- list(x=x, runs0=runs0, dims0=dims0, evals0=evals0)
+            mc <- match.call(call = sys.call(sys.parent(1)))
+            dots <- match.call(call = sys.call(sys.parent(1)),
+                               expand.dots = FALSE)$"..."
+            plotInfo <- list(call = mc, dots=dots, args=args0)
+  dots <- list(...)
 
   ldim0 <- min(getdistrTEstOption("MaxNumberofPlottedEvaluationDims"),
                length(dims0))
@@ -120,6 +132,7 @@ setMethod("plot",signature(x="EvaluationList",y="missing"),
   on.exit(par(opar))
   par(mfrow=c(resdim0,1))
 
+  plotInfo$boxplot <- plotInfo$usr <- plotInfo$bpdots <-vector("list",resdim0)
 
   for(i in 1:resdim0)
       {if("main" %in% names(dots))
@@ -132,8 +145,10 @@ setMethod("plot",signature(x="EvaluationList",y="missing"),
           dots[["ylim"]] <- ylim0[,i]
 
        dots[["x"]]<- as.data.frame(ma[,(i-1)*len0+(1:len0)])
-       do.call("boxplot", args = dots)
-
+       plotInfo$bpdots[[i]] <- dots
+       plotInfo$boxplot[[i]] <- do.call("boxplot", args = dots)
+       plotInfo$usr[[i]] <- par("usr")
       }
-   return(invisible())
+  class(plotInfo) <- c("plotInfo","DiagnInfo")
+  return(invisible(plotInfo))
 })

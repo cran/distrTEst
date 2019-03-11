@@ -15,15 +15,15 @@ and simulation classes as introduced there to capture the situation from which t
 \details{
 \tabular{ll}{
 Package: \tab distrTEst \cr
-Version: \tab 2.7.0 \cr
-Date: \tab 2018-07-08 \cr
+Version: \tab 2.8.0 \cr
+Date: \tab 2019-03-11 \cr
 Depends: \tab R(>= 2.6.0), methods, graphics, setRNG(>= 2006.2-1), distrSim(>= 2.2) \cr
 Imports: \tab startupmsg, utils\cr
 Suggests: \tab distrEx(>= 2.2)\cr
 LazyLoad: \tab yes \cr
 License: \tab LGPL-3 \cr
 URL: \tab http://distr.r-forge.r-project.org/\cr
-SVNRevision: \tab 1186 \cr
+VCS/SVNRevision: \tab 1314 \cr
 }}
 \section{Classes}{
 \preformatted{
