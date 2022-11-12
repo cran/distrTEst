@@ -96,6 +96,10 @@ load("csim.mean") # loads the evaluation with result
 ev1
 plot(ev1)
 #
+#clean up
+unlink("csim.mean")
+unlink("csim.mean.comment")
+#
 #another function to be evaluated:
 severalThings<- function(x) {list("mean"=mean(x),"sd"=sd(as.vector(x)), "mad"=mad(x))}
 ev3 <- evaluate(cs, severalThings, resname="several") 

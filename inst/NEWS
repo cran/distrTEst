@@ -18,6 +18,10 @@ user-visible CHANGES:
   \code{ggplot}) to produce the plot in a different framework. A more detailed description will follow in a subsequent version.
 + DESCRIPTION tag SVNRevision changed to VCS/SVNRevision
  
+under the hood:
++ fixed some broken URLs and changed URLs from http to https where possible
++ clean up in examples: files written to are unlinked at end of examples
+
 ##############
 v 2.7
 ##############

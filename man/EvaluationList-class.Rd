@@ -93,6 +93,9 @@ plot(ElistObj,ylim=matrix(c(-0.5,0.5,0.5,4),nrow=2),main=c("location","scale"))
 plot(ElistObj,ylim=c(-0.5,0.5),main=c("location"),runs0=3:12,dims0=1,evals0=2)
 ElistObj
 summary(ElistObj)
+#clean up
+unlink("csim.mean")
+unlink("csim.mean.comment")
 }
 \keyword{list}
 \keyword{manip}
