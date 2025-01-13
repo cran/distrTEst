@@ -8,6 +8,20 @@
  information)
 
 ##############
+v 2.8.3
+##############
+
++ taken up pkg "distr" into "Enhances" in DESCRIPTION to ensure all 
+  inter-pkg xrefs in Rd-files work
+
+under the hood:
++ adapted reference output for new startupmsg
++ converted encoding to UTF-8
++ transformed CITATION file to new format, i.e., bibentry() instead of citEntry(),
+        c(as.person( .... ), as.person( .... ), ...), instead of 
+		as.personList(....) 
+
+##############
 v 2.8
 ##############
 
